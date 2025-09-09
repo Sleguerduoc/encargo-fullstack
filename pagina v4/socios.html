@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Socios – SIGA Los Alces F.C.</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary position-relative">
+    <div class="container-fluid">
+      <button class="btn btn-primary d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="dashboard.html">
+        <img src="assets/img/logo/logo.png" alt="Logo Los Alces F.C." >
+        SIGA – LOS ALCES F.C.
+      </a>
+      <div class="ms-auto d-none d-lg-flex align-items-center">
+        <!-- Notificaciones -->
+        <div class="dropdown me-3">
+          <button class="btn btn-link text-white position-relative dropdown-toggle" id="notificationsDropdown"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-bell fa-lg"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown" style="min-width:250px;">
+            <li><h6 class="dropdown-header">Notificaciones</h6></li>
+            <li><a class="dropdown-item" href="#">🆕 Nuevo socio agregado</a></li>
+            <li><a class="dropdown-item" href="#">💳 Pago registrado</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-center" href="#">Ver todas</a></li>
+          </ul>
+        </div>
+        <!-- Perfil -->
+        <div class="dropdown">
+          <button class="btn btn-link text-white dropdown-toggle" id="profileDropdown"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle fa-lg"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" href="perfil.html">Mi Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Configuración</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="offcanvas-lg offcanvas-start bg-light" id="sidebar" tabindex="-1">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Menú</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+      <nav class="nav flex-column">
+        <a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+        <a class="nav-link" href="jugadores.html"><i class="fas fa-user me-2"></i>Jugadores</a>
+        <a class="nav-link" href="equipo-tecnico.html"><i class="fas fa-user-tie me-2"></i>Equipo Técnico</a>
+        <a class="nav-link" href="estadisticas.html"><i class="fas fa-chart-bar me-2"></i>Estadísticas</a>
+        <a class="nav-link" href="finanzas.html"><i class="fas fa-dollar-sign me-2"></i>Finanzas</a>
+        <a class="nav-link active" href="socios.html"><i class="fas fa-handshake me-2"></i>Socios</a>
+        <a class="nav-link" href="reportes.html"><i class="fas fa-file-alt me-2"></i>Reportes</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container-md mt-3">
+
+    <!-- Gestión de Socios: encabezado -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="m-0">Gestión de Socios</h2>
+      <a href="nuevo-socio.html" class="btn btn-success">
+        <i class="fas fa-plus me-1"></i>Nuevo Socio </a>
+    </div>
+
+    <!-- Filtros -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <input type="text" class="form-control" placeholder="Buscar nombre o RUT…">
+          </div>
+          <div class="col-12 col-md-6">
+            <select class="form-select">
+              <option value="" selected disabled>Estado</option>
+              <option>Activo</option>
+              <option>Inactivo</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de Socios -->
+    <div class="card mb-4">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>Nombre</th>
+                <th>RUT</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Manuel Reyes</td>
+                <td>11.111.111-1</td>
+                <td><span class="badge bg-success">Activo</span></td>
+                <td>
+                  <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                  <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>Andrés Soto</td>
+                <td>12.222.222-2</td>
+                <td><span class="badge bg-secondary">Inactivo</span></td>
+                <td>
+                  <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                  <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detalle y Registro de Pago -->
+    <div class="card mb-5">
+      <div class="card-body">
+        <!-- Pestañas -->
+        <ul class="nav nav-tabs mb-3" id="sociosTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#datos" type="button">Datos Socio</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pago" type="button">Registrar Pago</button>
+          </li>
+        </ul>
+        <!-- Contenido de pestañas -->
+        <div class="tab-content">
+          <!-- Datos Socio -->
+          <div class="tab-pane fade show active" id="datos">
+            <form>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Nombre completo</label>
+                  <input type="text" class="form-control" value="Manuel Reyes">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">RUT</label>
+                  <input type="text" class="form-control" value="11.111.111-1">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Fecha de ingreso</label>
+                  <input type="date" class="form-control" value="2024-03-01">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" value="manuel@club.cl">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Teléfono</label>
+                  <input type="tel" class="form-control" value="+56 9 1234 5678">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Dirección</label>
+                  <input type="text" class="form-control" value="Av. Siempre Viva 123">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Estado</label>
+                  <select class="form-select">
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="reset" class="btn btn-secondary ms-2">Cancelar</button>
+              </div>
+            </form>
+          </div>
+          <!-- Registrar Pago -->
+          <div class="tab-pane fade" id="pago">
+            <form>
+              <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Socio</label>
+                  <select class="form-select">
+                    <option value="" selected disabled>Selecciona socio</option>
+                    <option>Manuel Reyes</option>
+                    <option>Andrés Soto</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Fecha de pago</label>
+                  <input type="date" class="form-control">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Monto</label>
+                  <div class="input-group">
+                    <input type="number" class="form-control">
+                    <span class="input-group-text">CLP</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Método de pago</label>
+                  <select class="form-select">
+                    <option>Transferencia</option>
+                    <option>Efectivo</option>
+                    <option>Tarjeta</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Registrar Pago</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

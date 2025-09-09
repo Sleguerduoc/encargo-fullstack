@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard – SIGA Los Alces F.C.</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1) Mi Perfil → navega a tu página de perfil
+    document.getElementById('btnMiPerfil')
+      .addEventListener('click', () => {
+        window.location.href = 'perfil.html';
+      });
+
+    // 2) Configuración → lleva al usuario a configuración
+    document.getElementById('btnConfiguracion')
+      .addEventListener('click', () => {
+        window.location.href = 'configuracion.html';
+      });
+
+    // 3) Cerrar sesión → limpia sesión y redirige al login
+    document.getElementById('btnCerrarSesion')
+      .addEventListener('click', () => {
+        // Ejemplo: si guardas token en sessionStorage/localStorage:
+        sessionStorage.clear();   // o localStorage.removeItem('token');
+        // Luego rediriges
+        window.location.href = 'login.html';
+      });
+  });
+</script>
+
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary position-relative">
+    <div class="container-fluid">
+      <button class="btn btn-primary d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="dashboard.html">
+        <img src="assets/img/logo/logo.png" alt="Logo Los Alces F.C.">
+        SIGA – LOS ALCES F.C.
+      </a>
+
+      <div class="ms-auto d-none d-lg-flex align-items-center">
+        <!-- Dropdown de Notificaciones -->
+        <div class="dropdown me-3">
+          <button class="btn btn-link text-white position-relative dropdown-toggle" id="notificationsDropdown"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-bell fa-lg"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              8
+            </span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown" style="min-width: 250px;">
+            <li><h6 class="dropdown-header">Notificaciones</h6></li>
+            <li><a class="dropdown-item" href="#">🔔 Recordatorio: Pago de socio</a></li>
+            <li><a class="dropdown-item" href="#">📩 Tienes un nuevo mensaje</a></li>
+            <li><a class="dropdown-item" href="#">⚽ Nuevo partido agendado</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-center" href="notificaciones.html">Ver todas</a></li>
+          </ul>
+        </div>
+
+        <!-- Dropdown de Perfil -->
+        <div class="dropdown">
+  <button class="btn btn-link text-white dropdown-toggle" id="profileDropdown"
+          data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-user-circle fa-lg"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+    <li>
+      <a class="dropdown-item" href="#" id="btnMiPerfil">
+        Mi Perfil
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="#" id="btnConfiguracion">
+        Configuración
+      </a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+      <a class="dropdown-item text-danger" href="#" id="btnCerrarSesion">
+        Cerrar sesión
+      </a>
+    </li>
+  </ul>
+</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="offcanvas-lg offcanvas-start bg-light" tabindex="-1" id="sidebar">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Menú</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+      <nav class="nav flex-column">
+        <a class="nav-link active" href="dashboard.html"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+        <a class="nav-link" href="jugadores.html"><i class="fas fa-user me-2"></i>Jugadores</a>
+        <a class="nav-link" href="equipo-tecnico.html"><i class="fas fa-user-tie me-2"></i>Equipo Técnico</a>
+        <a class="nav-link" href="estadisticas.html"><i class="fas fa-chart-bar me-2"></i>Estadísticas</a>
+        <a class="nav-link" href="finanzas.html"><i class="fas fa-dollar-sign me-2"></i>Finanzas</a>
+        <a class="nav-link" href="socios.html"><i class="fas fa-handshake me-2"></i>Socios</a>
+        <a class="nav-link" href="reportes.html"><i class="fas fa-file-alt me-2"></i>Reportes</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container-md mt-3">
+    <!-- Estadísticas rápidas -->
+    <div class="row g-3">
+      <div class="col-12 col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Jugadores activos</h5>
+            <p class="display-6">24</p>
+            <p class="text-success">+53% este mes</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Ingresos recientes</h5>
+            <p class="display-6">$12,500</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Alertas</h5>
+            <p class="display-6">8</p>
+            <p class="text-warning">Cuotas pendientes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráficos y próximos partidos -->
+    <div class="row g-3 mt-4">
+      <div class="col-12 col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Ingresos vs. Egresos</h5>
+            <canvas id="incomeChart" style="width:100%; height:250px;"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Próximos partidos</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between"><span>25 Abr</span><span>CD Fero</span></li>
+              <li class="list-group-item d-flex justify-content-between"><span>3 May</span><span>Dep. Valdivia</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Máximos goleadores -->
+    <div class="row g-3 mt-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Máximos goleadores</h5>
+            <canvas id="scorersChart" style="width:100%; height:250px;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap & Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Plugin para mostrar datos en las barras -->
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <script>
+    Chart.register(ChartDataLabels);
+
+    // Ingresos vs. Egresos
+    const incomeCtx = document.getElementById('incomeChart').getContext('2d');
+    new Chart(incomeCtx, {
+      type: 'line',
+      data: {
+        labels: ['Ene','Feb','Mar','Abr','May','Jun','Jul'],
+        datasets: [{
+          data: [5000,7000,8000,9000,10000,11000,12500],
+          borderColor: '#dba41b',
+          tension: 0.4,
+          fill: false
+        }]
+      },
+      options: {
+        scales: { x: { display: false }, y: { display: false } },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    // Máximos goleadores
+    const scorersCtx = document.getElementById('scorersChart').getContext('2d');
+    new Chart(scorersCtx, {
+      type: 'bar',
+      data: {
+        labels: ['A. Pérez','J. Soto','R. Gutiérrez','M. López','D. Martínez'],
+        datasets: [{ data: [12,10,8,6,4], backgroundColor: '#dba41b' }]
+      },
+      options: {
+        indexAxis: 'y',
+        scales: { x: { beginAtZero: true }, y: {} },
+        plugins: {
+          legend: { display: false },
+          datalabels: {
+            anchor: 'end', align: 'right',
+            color: 'var(--color-text)', font: { weight: '600' },
+            formatter: value => value
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

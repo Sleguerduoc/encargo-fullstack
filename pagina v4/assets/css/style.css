@@ -1,0 +1,191 @@
+/* style.css – SIGA Los Alces F.C. (consolidado y fixes) */
+
+/* — Variables de tema — */
+:root {
+  --color-primary:    #0f2941;
+  --color-accent:     #dba41b;
+  --color-text:       #0f2941;
+  --sidebar-bg:       #f0ede5;
+  --panel-bg:         #eee9da;
+  --font-base:        'Poppins', sans-serif;
+  --radius-base:      0.5rem;
+  --gutter-base:      1rem;
+  --transition-fast:  0.2s ease-in-out;
+  --sidebar-width:    250px;
+  --sidebar-gap:      1rem;
+  --right-gap:        1.5rem;
+}
+
+/* — Reset y base — */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background-color: var(--color-primary);
+}
+
+/* — Navbar — */
+.navbar {
+  background-color: var(--color-primary) !important;
+  box-shadow: none !important;
+  z-index: 1030;
+}
+
+/* — Sidebar (offcanvas-lg) — */
+.offcanvas-lg.offcanvas-start {
+  background-color: var(--sidebar-bg) !important;
+  width: var(--sidebar-width) !important;
+  border-radius: var(--radius-base) var(--radius-base) 0 0;
+  box-shadow: none !important;
+}
+
+.offcanvas-body .nav {
+  padding-top: calc(var(--gutter-base) * 1.5);
+}
+
+.offcanvas-body .nav-link {
+  color: var(--color-text) !important;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.offcanvas-body .nav-link:hover,
+.offcanvas-body .nav-link.active {
+  background-color: var(--color-text) !important;
+  color: var(--sidebar-bg) !important;
+}
+
+/* — Main panel — */
+main.container-md {
+  background-color: var(--panel-bg);
+  border-radius: var(--radius-base);
+  padding: 1.5rem;
+  /* mobile full width, desktop overridden below */
+  margin: var(--gutter-base);
+  max-width: none;
+}
+
+/* — Grid gutter fix inside main — */
+main.container-md .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+main.container-md .row > [class*="col-"] {
+  padding-left: calc(var(--gutter-base) / 2) !important;
+  padding-right: calc(var(--gutter-base) / 2) !important;
+}
+
+/* — Tarjetas (card-body wrappers) — */
+.card {
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--text-dark);
+  border: none;
+}
+
+.card > .card-body {
+  background-color: var(--sidebar-bg);
+  border-radius: var(--radius-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+}
+
+/* — Títulos y textos destacados — */
+.card-title,
+h5 {
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.display-6 {
+  color: var(--text-dark) !important;
+}
+
+/* — Canvas en tarjetas — */
+canvas {
+  background-color: var(--text-dark);
+  border-radius: var(--radius-base);
+}
+
+/* — Ajustes de badges — */
+.text-success,
+.text-warning {
+  font-weight: 600;
+}
+
+/* — Responsive fixes: posición fija del sidebar y desplazamiento del contenido — */
+@media (min-width: 992px) {
+  /* Sidebar fijo */
+  .offcanvas-lg.offcanvas-start {
+    position: fixed !important;
+    top: 56px; /* altura navbar */
+    left: 0;
+    height: calc(100vh - 56px);
+    transform: none !important;
+    visibility: visible !important;
+    margin: 0 !important;
+    border-radius: 0 var(--radius-base) var(--radius-base) 0;
+    z-index: 1020;
+  }
+
+  /* Navbar desplazado */
+  .navbar {
+    margin-left: calc(var(--sidebar-width) + var(--sidebar-gap)) !important;
+    width: calc(100% - (var(--sidebar-width) + var(--sidebar-gap))) !important;
+  }
+
+  /* Main desplazado y ancho automático */
+  main.container-md {
+    margin: 
+      var(--gutter-base) /* top */
+      var(--right-gap)   /* right */
+      var(--gutter-base) /* bottom */
+      calc(var(--sidebar-width) + var(--sidebar-gap)); /* left */
+    max-width: calc(
+      100vw - (var(--sidebar-width) + var(--sidebar-gap) + var(--right-gap))
+    ) !important;
+  }
+}
+.navbar .ms-auto {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+}
+
+/* ——————————————
+   Ajuste exclusivo del logo en el navbar
+   ——————————————*/
+
+/* Alinea logo y texto en el centro vertical */
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+/* Solo cambia el tamaño del <img> dentro de .navbar-brand */
+.navbar .navbar-brand img {
+  height: 100px;    /* pon el alto que quieras */
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+/* ——————————————
+   Login: dar fondo a la tarjeta
+   ——————————————*/
+body.login-bg .card {
+  background-color: #ffffff;    /* o el color que prefieras */
+  color: var(--color-text);     /* garantizar texto legible */
+}
