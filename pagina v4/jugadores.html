@@ -15,14 +15,13 @@
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary position-relative">
     <div class="container-fluid">
       <button class="btn btn-primary d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="dashboard.html">
-        <img src="assets/img/logo/logo.png" alt="Logo Los Alces F.C." >
+        <img src="assets/img/logo/logo.png" alt="Logo Los Alces F.C.">
         SIGA – LOS ALCES F.C.
       </a>
 
@@ -36,7 +35,7 @@
               8
             </span>
           </button>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown" style="min-width:250px;">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown" style="min-width: 250px;">
             <li><h6 class="dropdown-header">Notificaciones</h6></li>
             <li><a class="dropdown-item" href="#">🔔 Recordatorio: Pago de socio</a></li>
             <li><a class="dropdown-item" href="#">📩 Tienes un nuevo mensaje</a></li>
@@ -48,21 +47,32 @@
 
         <!-- Dropdown de Perfil -->
         <div class="dropdown">
-          <button class="btn btn-link text-white dropdown-toggle" id="profileDropdown"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-user-circle fa-lg"></i>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-            <li><a class="dropdown-item" href="perfil.html">Mi Perfil</a></li>
-            <li><a class="dropdown-item" href="#">Configuración</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-          </ul>
-        </div>
+  <button class="btn btn-link text-white dropdown-toggle" id="profileDropdown"
+          data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-user-circle fa-lg"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+    <li>
+      <a class="dropdown-item" href="perfil.html" id="btnMiPerfil">
+        Mi Perfil
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="configuracion.html" id="btnConfiguracion">
+        Configuración
+      </a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+      <a class="dropdown-item text-danger" href="login.html" id="btnCerrarSesion">
+        Cerrar sesión
+      </a>
+    </li>
+  </ul>
+</div>
       </div>
     </div>
   </nav>
-
   <!-- Sidebar -->
   <div class="offcanvas-lg offcanvas-start bg-light" id="sidebar" tabindex="-1">
     <div class="offcanvas-header">

@@ -14,31 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // 1) Mi Perfil → navega a tu página de perfil
-    document.getElementById('btnMiPerfil')
-      .addEventListener('click', () => {
-        window.location.href = 'perfil.html';
-      });
-
-    // 2) Configuración → lleva al usuario a configuración
-    document.getElementById('btnConfiguracion')
-      .addEventListener('click', () => {
-        window.location.href = 'configuracion.html';
-      });
-
-    // 3) Cerrar sesión → limpia sesión y redirige al login
-    document.getElementById('btnCerrarSesion')
-      .addEventListener('click', () => {
-        // Ejemplo: si guardas token en sessionStorage/localStorage:
-        sessionStorage.clear();   // o localStorage.removeItem('token');
-        // Luego rediriges
-        window.location.href = 'login.html';
-      });
-  });
-</script>
-
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary position-relative">
@@ -79,18 +54,18 @@
   </button>
   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
     <li>
-      <a class="dropdown-item" href="#" id="btnMiPerfil">
+      <a class="dropdown-item" href="perfil.html" id="btnMiPerfil">
         Mi Perfil
       </a>
     </li>
     <li>
-      <a class="dropdown-item" href="#" id="btnConfiguracion">
+      <a class="dropdown-item" href="configuracion.html" id="btnConfiguracion">
         Configuración
       </a>
     </li>
     <li><hr class="dropdown-divider"></li>
     <li>
-      <a class="dropdown-item text-danger" href="#" id="btnCerrarSesion">
+      <a class="dropdown-item text-danger" href="login.html" id="btnCerrarSesion">
         Cerrar sesión
       </a>
     </li>

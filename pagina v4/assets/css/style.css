@@ -189,3 +189,35 @@ body.login-bg .card {
   background-color: #ffffff;    /* o el color que prefieras */
   color: var(--color-text);     /* garantizar texto legible */
 }
+
+/* Ajustes visuales específicos de la tienda (respetando el tema global) */
+    .merch-hero {
+      background: linear-gradient(135deg, rgba(15,41,65,.9), rgba(219,164,27,.85)),
+                  url('assets/img/logo/logo.png') center/120px no-repeat;
+      color: #fff;
+      border-radius: var(--radius-base);
+      padding: 1.25rem 1.25rem;
+    }
+    .product-card .badge {
+      position: absolute; top: .75rem; left: .75rem;
+    }
+    .product-card .fav-btn {
+      position: absolute; top: .5rem; right: .5rem;
+      border: none; background: rgba(255,255,255,.85);
+      width: 36px; height: 36px; border-radius: 999px;
+    }
+    .product-card img {
+      aspect-ratio: 1/1; object-fit: cover; width: 100%;
+      border-radius: .75rem;
+      background: #f5f5f5;
+    }
+    .price { font-weight: 700; }
+    .old-price { text-decoration: line-through; opacity: .6; margin-left: .5rem; }
+    .offcanvas-cart .list-group-item { border: none; }
+    .filter-chip { background: #fff; border: 1px solid rgba(0,0,0,.08); }
+    .filter-chip.active { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+    .cart-counter {
+      position: absolute; top: -4px; right: -4px;
+      background: #dc3545; color: #fff; font-size: .7rem; line-height: 1;
+      border-radius: 999px; padding: .25rem .4rem;
+    }

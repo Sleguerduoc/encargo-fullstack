@@ -12,62 +12,75 @@
 
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <style>
-    /* Ajustes visuales específicos de la tienda (respetando el tema global) */
-    .merch-hero {
-      background: linear-gradient(135deg, rgba(15,41,65,.9), rgba(219,164,27,.85)),
-                  url('assets/img/logo/logo.png') center/120px no-repeat;
-      color: #fff;
-      border-radius: var(--radius-base);
-      padding: 1.25rem 1.25rem;
-    }
-    .product-card .badge {
-      position: absolute; top: .75rem; left: .75rem;
-    }
-    .product-card .fav-btn {
-      position: absolute; top: .5rem; right: .5rem;
-      border: none; background: rgba(255,255,255,.85);
-      width: 36px; height: 36px; border-radius: 999px;
-    }
-    .product-card img {
-      aspect-ratio: 1/1; object-fit: cover; width: 100%;
-      border-radius: .75rem;
-      background: #f5f5f5;
-    }
-    .price { font-weight: 700; }
-    .old-price { text-decoration: line-through; opacity: .6; margin-left: .5rem; }
-    .offcanvas-cart .list-group-item { border: none; }
-    .filter-chip { background: #fff; border: 1px solid rgba(0,0,0,.08); }
-    .filter-chip.active { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
-    .cart-counter {
-      position: absolute; top: -4px; right: -4px;
-      background: #dc3545; color: #fff; font-size: .7rem; line-height: 1;
-      border-radius: 999px; padding: .25rem .4rem;
-    }
-  </style>
+
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary position-relative">
-    <div class="container-fluid">
-      <button class="btn btn-primary d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="dashboard.html">
-        <img src="assets/img/logo/logo.png" alt="Logo Los Alces F.C." />
-        SIGA – LOS ALCES F.C.
-      </a>
+ <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary position-relative">
+  <div class="container-fluid">
+    <!-- Botón para abrir el sidebar en pantallas pequeñas -->
+    <button class="btn btn-primary d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="ms-auto d-flex align-items-center gap-2">
-        <!-- Botón carrito -->
-        <button class="btn btn-outline-light position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <span id="cartCount" class="cart-counter d-none">0</span>
+    <!-- Logo -->
+    <a class="navbar-brand" href="dashboard.html">
+      <img src="assets/img/logo/logo.png" alt="Logo Los Alces F.C.">
+      SIGA – LOS ALCES F.C.
+    </a>
+
+    <!-- Contenedor de botones a la derecha -->
+    <div class="ms-auto d-none d-lg-flex align-items-center">
+      <!-- Dropdown de Notificaciones -->
+      <div class="dropdown me-3">
+        <button class="btn btn-link text-white position-relative dropdown-toggle" id="notificationsDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-bell fa-lg"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            8
+          </span>
         </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown" style="min-width: 250px;">
+          <li><h6 class="dropdown-header">Notificaciones</h6></li>
+          <li><a class="dropdown-item" href="#">🔔 Recordatorio: Pago de socio</a></li>
+          <li><a class="dropdown-item" href="#">📩 Tienes un nuevo mensaje</a></li>
+          <li><a class="dropdown-item" href="#">⚽ Nuevo partido agendado</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item text-center" href="notificaciones.html">Ver todas</a></li>
+        </ul>
       </div>
+
+      <!-- Dropdown de Perfil -->
+      <div class="dropdown me-3">
+        <button class="btn btn-link text-white dropdown-toggle" id="profileDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-user-circle fa-lg"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+          <li>
+            <a class="dropdown-item" href="perfil.html" id="btnMiPerfil">Mi Perfil</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="configuracion.html" id="btnConfiguracion">Configuración</a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <a class="dropdown-item text-danger" href="login.html" id="btnCerrarSesion">Cerrar sesión</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Botón carrito -->
+      <button class="btn btn-outline-light position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cartCount" class="cart-counter d-none">0</span>
+      </button>
     </div>
-  </nav>
+  </div>
+</nav>
+
+        
 
   <!-- Sidebar -->
   <div class="offcanvas-lg offcanvas-start bg-light" id="sidebar" tabindex="-1">
